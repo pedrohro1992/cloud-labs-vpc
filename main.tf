@@ -20,12 +20,16 @@ module "vpc" {
   # Needed tags to kubernetes
   private_subnet_tags = {
     "kubernetes.io/role/internal-elb" = "1"
+    #TODO change "meu-cluster" to accutal cluster name
     "kubernetes.io/cluster/meu-cluster" = "shared"
   }
 
   public_subnet_tags = {
     "kubernetes.io/role/elb" = "1"
+    #TODO change "meu-cluster" to accutal cluster name
     "kubernetes.io/cluster/meu-cluster" = "shared"
+    Tier = "Public"
+
   }
 
   tags = {
