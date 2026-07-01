@@ -24,11 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Debug OIDC
-        run: |
-          echo "Role ARN: ${{ secrets.AWS_ROLE_ARN }}" 
-          echo "GITHUB_TOKEN permissions: $(curl -s -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' ${{ env.ACTIONS_ID_TOKEN_REQUEST_URL }} | jq .)"
-
       - name: Configure AWS credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
