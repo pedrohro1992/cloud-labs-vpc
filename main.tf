@@ -21,13 +21,13 @@ module "vpc" {
   private_subnet_tags = {
     "kubernetes.io/role/internal-elb" = "1"
     #TODO change "meu-cluster" to accutal cluster name
-    "kubernetes.io/cluster/meu-cluster" = "shared"
+    "kubernetes.io/cluster/cloud-labs-eks" = "shared"
   }
 
   public_subnet_tags = {
     "kubernetes.io/role/elb" = "1"
     #TODO change "meu-cluster" to accutal cluster name
-    "kubernetes.io/cluster/meu-cluster" = "shared"
+    "kubernetes.io/cluster/cloud-labs-eks" = "shared"
     Tier = "Public"
 
   }
