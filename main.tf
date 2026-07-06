@@ -22,6 +22,8 @@ module "vpc" {
     "kubernetes.io/role/internal-elb" = "1"
     #TODO change "meu-cluster" to accutal cluster name
     "kubernetes.io/cluster/cloud-labs-eks" = "shared"
+    "karpenter.sh/discovery" = "cloud-labs-eks"
+    Tier = "Private"
   }
 
   public_subnet_tags = {
