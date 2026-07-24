@@ -2,6 +2,8 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~> 5.0"
 
+
+
   name = var.vpc_name
   cidr = "10.0.0.0/16"
 
@@ -11,7 +13,7 @@ module "vpc" {
 
   # Configure external communication on the VPC
   enable_nat_gateway = true
-  single_nat_gateway = true 
+  single_nat_gateway = true
 
   # Configure EC2 to resolve internal names
   enable_dns_hostnames = true
@@ -22,15 +24,15 @@ module "vpc" {
     "kubernetes.io/role/internal-elb" = "1"
     #TODO change "meu-cluster" to accutal cluster name
     "kubernetes.io/cluster/cloud-labs" = "shared"
-    "karpenter.sh/discovery" = "cloud-labs"
-    Tier = "Private"
+    "karpenter.sh/discovery"           = "cloud-labs"
+    Tier                               = "Private"
   }
 
   public_subnet_tags = {
     "kubernetes.io/role/elb" = "1"
     #TODO change "meu-cluster" to accutal cluster name
     "kubernetes.io/cluster/cloud-labs" = "shared"
-    Tier = "Public"
+    Tier                               = "Public"
 
   }
 
